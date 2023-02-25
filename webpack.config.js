@@ -1,7 +1,5 @@
 const path = require('path');
-// generates its ownn index.html file
-// allows to change dynamically entry points 
-// generates a single html file
+// generates html bundles automatically and dynamically
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,5 +11,6 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
 };
