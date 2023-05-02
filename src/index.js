@@ -15,11 +15,16 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+// document.body.appendChild(component());
+let element = component();
+document.body.appendChild(element); // store element to re-render on print.js changes
 
 if (module.hot) {
   module.hot.accept('./print.js', function() {
     console.log('Accepting the updated printMe module!');
-    printMe();
+    // printMe();
+    document.body.removeChild(element);
+    element = component();
+    document.body.appendChild(element);
   });
 }
